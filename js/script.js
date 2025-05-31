@@ -18,8 +18,11 @@ function addBookToLibrary(book) {
 function displayBooks() {
     let libraryContainer = document.getElementById("library");
 
+    while (libraryContainer.firstChild) {
+        libraryContainer.removeChild(libraryContainer.firstChild);
+    }
+
     for (let i = 0; i < library.length; i++) {
-        console.log(library[i]);
         let book = document.createElement("div");
         book.classList.add("book");
 
@@ -53,6 +56,26 @@ function displayBooks() {
     }
 }
 
+function createNewBook(e) {
+    e.preventDefault();
+
+    let title = document.getElementById("book-form-title").value;
+    let author = document.getElementById("book-form-author").value;
+    let pages = document.getElementById("book-form-pages").value;
+    let isRead =
+            document.querySelector("input[name='book-form-read-status']:checked").value === "true"
+            ? true
+            : false;
+    
+    console.log(title);
+    console.log(author);
+    console.log(pages);
+    console.log(isRead);
+
+    addBookToLibrary(new Book(title, author, pages, isRead));
+    displayBooks();
+}
+
 function addDummyBooks() {
     let book1 = new Book("The Book Thief", "Markus Zusak", 592, true);
     let book2 = new Book("The Northern Lights", "Philip Pullman", 399, false);
@@ -75,7 +98,5 @@ document.addEventListener("DOMContentLoaded", function(e) {
     addDummyBooks();
 
     let bookForm = document.getElementById("book-form");
-    bookForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-    });
+    bookForm.addEventListener("submit", createNewBook);
 });
