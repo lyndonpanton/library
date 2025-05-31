@@ -25,6 +25,7 @@ function displayBooks() {
     for (let i = 0; i < library.length; i++) {
         let book = document.createElement("div");
         book.classList.add("book");
+        book.setAttribute("data-id", library[i].id);
 
         let title = document.createElement("p");
         title.classList.add("book-title");
@@ -41,11 +42,17 @@ function displayBooks() {
         pages.classList.add("book-extra-information-pages");
         pages.textContent = library[i].pages;
 
+        let deleteButton = document.createElement("button");
+        deleteButton.classList.add("book-extra-information-delete");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", deleteBook);
+
         let isRead = document.createElement("span");
         isRead.classList.add("book-extra-information-is-read");
         isRead.textContent = library[i].isRead ? "Y" : "N";
 
         extraInformation.appendChild(pages);
+        extraInformation.appendChild(deleteButton)
         extraInformation.appendChild(isRead);
 
         book.appendChild(title);
@@ -74,6 +81,21 @@ function createNewBook(e) {
 
     addBookToLibrary(new Book(title, author, pages, isRead));
     displayBooks();
+}
+
+function deleteBook(e) {
+    let book = e.target.parentElement.parentElement;
+    let id = book.getAttribute("data-id");
+
+    for (let i = 0; i < library.length; i++) {
+        if (library[i].id = id) {
+            library.splice(i, 1);
+
+            break;
+        }
+    }
+
+    book.parentElement.removeChild(book);
 }
 
 function addDummyBooks() {
