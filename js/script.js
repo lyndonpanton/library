@@ -73,4 +73,9 @@ const library = [];
 
 document.addEventListener("DOMContentLoaded", function(e) {
     addDummyBooks();
+
+    let bookForm = document.getElementById("book-form");
+    bookForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+    });
 });
