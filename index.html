@@ -18,6 +18,37 @@
         <div id="library">
 
         </div>
+
+        <button>Add New Book</button>
+
+        <form action="" id="book-form">
+            <label for="book-form-title">Title</label>
+            <input type="text" name="book-form-title" id="book-form-title">
+
+            <label for="book-form-author">Author</label>
+            <input type="text" name="book-form-author" id="book-form-author">
+
+            <label for="book-form-pages">Page Count</label>
+            <input type="text" name="book-form-pages" id="book-form-pages">
+
+            <fieldset>
+                <legend>Read Status</legend>
+
+                <ul id="book-form-read-status">
+                    <li>
+                        <input type="radio" name="book-form-read-status" id="book-form-reading" value="false">
+                        <label for="book-form-reading">Reading</label>
+                    </li>
+
+                    <li>
+                        <input type="radio" name="book-form-read-status" id="book-form-complete" value="true">
+                        <label for="book-form-complete">Complete</label>
+                    </li>
+                </ul>
+            </fieldset>
+
+            <button type="submit">Add Book</button>
+        </form>
     </main>
 </body>
 </html>
