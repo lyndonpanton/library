@@ -1,3 +1,4 @@
+/* General */
 * {
     box-sizing: border-box;
 
@@ -10,4 +11,52 @@
 body, html {
     margin: 0;
     padding: 0;
+}
+
+/* Library */
+#library {
+    display: flex;
+    flex-direction: row;
+    /* flex-basis: 30%; */
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.book {
+    position: relative;
+
+    margin: 10px;
+    border-radius: 1px;
+    width: 210px;
+    height: 280px;
+    padding: 20px;
+
+    background-color: lightblue;
+}
+
+.book-title {
+    text-align: center;
+}
+
+.book-author {
+    text-align: center;
+}
+
+.book-extra-information {
+    position: absolute;
+    bottom: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 80%;
+}
+
+.book-extra-information-pages {
+    
+}
+
+.book-extra-information-is-read {
+
 }

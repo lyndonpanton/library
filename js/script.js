@@ -11,10 +11,15 @@ function addBookToLibrary(title, author, pages, isRead) {
     library.push(newBook);
 }
 
+function addBookToLibrary(book) {
+    library.push(book);
+}
+
 function displayBooks() {
     let libraryContainer = document.getElementById("library");
 
     for (let i = 0; i < library.length; i++) {
+        console.log(library[i]);
         let book = document.createElement("div");
         book.classList.add("book");
 
@@ -48,8 +53,24 @@ function displayBooks() {
     }
 }
 
+function addDummyBooks() {
+    let book1 = new Book("The Book Thief", "Markus Zusak", 592, true);
+    let book2 = new Book("The Northern Lights", "Philip Pullman", 399, false);
+    let book3 = new Book("The Girl With The Dragon Tattoo", "Stieg Larsson", 480, false);
+    let book4 = new Book("The Wind In The Willows", "Kenneth Grahame", 197, true);
+    let book5 = new Book("1984", "George Orwell", 368, false);
+
+    addBookToLibrary(book1);
+    addBookToLibrary(book2);
+    addBookToLibrary(book3);
+    addBookToLibrary(book4);
+    addBookToLibrary(book5);
+
+    displayBooks();
+}
+
 const library = [];
 
 document.addEventListener("DOMContentLoaded", function(e) {
-    console.log("DOM content has loaded");
+    addDummyBooks();
 });
