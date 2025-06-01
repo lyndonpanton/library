@@ -19,40 +19,50 @@
 
         </div>
 
-        <button>Add New Book</button>
+        <button id="book-dialog-open">Add New Book</button>
 
-        <form action="" id="book-form">
-            <label for="book-form-title">Title</label>
-            <input type="text" name="book-form-title" id="book-form-title">
-
-            <label for="book-form-author">Author</label>
-            <input type="text" name="book-form-author" id="book-form-author">
-
-            <label for="book-form-pages">Page Count</label>
-            <input type="text" name="book-form-pages" id="book-form-pages">
-
-            <fieldset>
-                <legend>Read Status</legend>
-
+        <dialog id="book-dialog">
+            <form action="" id="book-form">
                 <ul>
                     <li>
-                        <input type="radio" name="book-form-read-status" id="book-form-reading" value="false">
-                        <label for="book-form-reading">Reading</label>
+                        <label for="book-form-title">Title</label>
+                        <input type="text" name="book-form-title" id="book-form-title">
                     </li>
 
                     <li>
-                        <input type="radio" name="book-form-read-status" id="book-form-complete" value="true">
-                        <label for="book-form-complete">Complete</label>
+                        <label for="book-form-author">Author</label>
+                        <input type="text" name="book-form-author" id="book-form-author">
+                    </li>
+
+                    <li>
+                        <label for="book-form-pages">Page Count</label>
+                        <input type="text" name="book-form-pages" id="book-form-pages">
                     </li>
                 </ul>
-            </fieldset>
 
-            <button type="submit">Add Book</button>
-        </form>
+                <fieldset>
+                    <legend>Read Status</legend>
 
-        <!-- <div id="add-book-container">
+                    <ul>
+                        <li>
+                            <input type="radio" name="book-form-read-status" id="book-form-reading" value="false">
+                            <label for="book-form-reading">Reading</label>
+                        </li>
 
-        </div> -->
+                        <li>
+                            <input type="radio" name="book-form-read-status" id="book-form-complete" value="true">
+                            <label for="book-form-complete">Complete</label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+                <div id="book-form-buttons">
+                    <button type="submit" id="book-form-button-add" class="book-form-button">Add Book</button>
+                    <button type="button" id="book-form-button-close" class="book-form-button">Close</button>
+                </div>
+            </form>
+
+        </dialog>
     </main>
 </body>
 </html>

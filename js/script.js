@@ -67,21 +67,20 @@ function displayBooks() {
 function createNewBook(e) {
     e.preventDefault();
 
-    let title = document.getElementById("book-form-title").value;
-    let author = document.getElementById("book-form-author").value;
-    let pages = document.getElementById("book-form-pages").value;
+    let title = document.getElementById("book-form-title");
+    let author = document.getElementById("book-form-author");
+    let pages = document.getElementById("book-form-pages");
     let isRead =
             document.querySelector("input[name='book-form-read-status']:checked").value === "true"
             ? true
             : false;
-    
-    console.log(title);
-    console.log(author);
-    console.log(pages);
-    console.log(isRead);
 
-    addBookToLibrary(new Book(title, author, pages, isRead));
-    displayBooks();
+    if (title.value.trim() !== "" && author.value.trim() !== "" && pages.value.trim() !== "") {
+        addBookToLibrary(new Book(title.value, author.value, pages.value, isRead));
+        clearDialog([title, author, pages]);
+        displayBooks();
+        closeDialog();
+    }
 }
 
 function deleteBook(e) {
@@ -111,6 +110,26 @@ function toggleReadStatus(e) {
 
 }
 
+function clearDialog(formElements) {
+    for (let i = 0; i < formElements.length; i++) {
+        if ("value" in formElements[i]) {
+            formElements[i].value = "";
+            formElements[i].value = "";
+            formElements[i].value = "";
+        }
+    }
+}
+
+function closeDialog() {
+    let bookDialog = document.getElementById("book-dialog");
+    bookDialog.close();
+}
+
+function openDialog() {
+    let bookDialog = document.getElementById("book-dialog");
+    bookDialog.setAttribute("open", true);
+}
+
 function addDummyBooks() {
     let book1 = new Book("The Book Thief", "Markus Zusak", 592, true);
     let book2 = new Book("The Northern Lights", "Philip Pullman", 399, false);
@@ -134,4 +153,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     let bookForm = document.getElementById("book-form");
     bookForm.addEventListener("submit", createNewBook);
+
+    let closeDialogButton = document.getElementById("book-form-button-close");
+    closeDialogButton.addEventListener("click", closeDialog);
+
+    let openDialogButton = document.getElementById("book-dialog-open");
+    openDialogButton.addEventListener("click", openDialog);
 });
