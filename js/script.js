@@ -50,6 +50,7 @@ function displayBooks() {
         let isRead = document.createElement("span");
         isRead.classList.add("book-extra-information-is-read");
         isRead.textContent = library[i].isRead ? "Y" : "N";
+        isRead.addEventListener("click", toggleReadStatus);
 
         extraInformation.appendChild(pages);
         extraInformation.appendChild(deleteButton)
@@ -88,7 +89,7 @@ function deleteBook(e) {
     let id = book.getAttribute("data-id");
 
     for (let i = 0; i < library.length; i++) {
-        if (library[i].id = id) {
+        if (library[i].id == id) {
             library.splice(i, 1);
 
             break;
@@ -96,6 +97,18 @@ function deleteBook(e) {
     }
 
     book.parentElement.removeChild(book);
+}
+
+function toggleReadStatus(e) {
+    let bookID = e.target.parentElement.parentElement.getAttribute("data-id");
+    
+    for (let i = 0; i < library.length; i++) {
+        if (library[i].id == bookID) {
+            library[i].isRead = library[i].isRead ? false : true;
+            e.target.textContent = library[i].isRead ? "Y" : "N";
+        }
+    }
+
 }
 
 function addDummyBooks() {
