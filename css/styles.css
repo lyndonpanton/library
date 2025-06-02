@@ -251,7 +251,7 @@ input[type="radio"]:checked::before {
 
     margin: 0 auto;
     border-radius: 2px;
-    padding: 10px 30px;
+    padding: 10px 45px;
 
     background-color: lightskyblue;
 
