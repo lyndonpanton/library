@@ -15,8 +15,8 @@ which contains the form for adding new books
     - [ ] Default view
     - [ ] Dialog view
 - [ ] Style the application
-- [ ] Use an icon for the _is read_ status of a book
-    - [ ] Toggling this icon should not change the position of any elements
+- [x] Use an icon for the _is read_ status of a book
+    - [x] Toggling this icon should not change the position of any elements
 
 ### Additional
 

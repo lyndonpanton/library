@@ -18,6 +18,8 @@ books.
 
 ### Managers, Packages, and Libraries
 
+- Icons: [Pictogrammers](https://pictogrammers.com/)
+
 ### Development Tools
 
 - Git

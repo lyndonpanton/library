@@ -43,12 +43,11 @@ h1 {
 #library {
     display: flex;
     flex-direction: row;
-    /* flex-basis: 30%; */
     flex-wrap: wrap;
     justify-content: space-around;
 
     height: 80vh;
-    padding: 40px 0;
+    padding: 40px 0 150px;
 
     overflow-y: scroll; 
 }
@@ -57,42 +56,51 @@ h1 {
     position: relative;
 
     margin: 10px;
-    border-radius: 1px;
     width: 210px;
     height: 280px;
+    border: 2px solid slategrey;
+    border-radius: 2px;
     padding: 20px;
 
     background-color: lightblue;
 }
 
-.book-title {
+.book > * {
+    margin: 20px auto;
     text-align: center;
+}
+
+.book-title {
+    font-size: 1.3rem;
 }
 
 .book-author {
+    font-size: 1.2rem;
+}
+
+.book-pages {
+    margin: 20px auto 0;
     text-align: center;
 }
 
-.book-extra-information {
+.book-delete {
     position: absolute;
-    bottom: 20px;
+    bottom: 0;
+    left: 20px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    width: 80%;
+    width: 30px;
+    height: 30px;
 }
 
-.book-extra-information-pages {
+.book-is-read {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
     
-}
+    width: 30px;
+    height: 30px;
 
-.book-extra-information-delete {
-    
-}
-
-.book-extra-information-is-read {
+    text-align: center;
 
 }
 

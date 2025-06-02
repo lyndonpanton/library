@@ -35,30 +35,27 @@ function displayBooks() {
         author.classList.add("book-author");
         author.textContent = library[i].author;
 
-        let extraInformation = document.createElement("div");
-        extraInformation.classList.add("book-extra-information");
+        let pages = document.createElement("p");
+        pages.classList.add("book-pages");
+        pages.textContent = library[i].pages + " pages";
 
-        let pages = document.createElement("span");
-        pages.classList.add("book-extra-information-pages");
-        pages.textContent = library[i].pages;
+        let deleteIcon = document.createElement("img");
+        deleteIcon.setAttribute("src", "./icon/book-delete.svg");
+        deleteIcon.setAttribute("alt", "A trash can icon");
+        deleteIcon.classList.add("book-delete");
+        deleteIcon.addEventListener("click", deleteBook);
 
-        let deleteButton = document.createElement("button");
-        deleteButton.classList.add("book-extra-information-delete");
-        deleteButton.textContent = "Delete";
-        deleteButton.addEventListener("click", deleteBook);
-
-        let isRead = document.createElement("span");
-        isRead.classList.add("book-extra-information-is-read");
-        isRead.textContent = library[i].isRead ? "Y" : "N";
-        isRead.addEventListener("click", toggleReadStatus);
-
-        extraInformation.appendChild(pages);
-        extraInformation.appendChild(deleteButton)
-        extraInformation.appendChild(isRead);
+        let isReadIcon = document.createElement("img");
+        isReadIcon.setAttribute("src", "./icon/book-reading-2.svg");
+        isReadIcon.setAttribute("alt", "Currently reading book icon");
+        isReadIcon.classList.add("book-is-read");
+        isReadIcon.addEventListener("click", toggleReadStatus);
 
         book.appendChild(title);
         book.appendChild(author);
-        book.appendChild(extraInformation);
+        book.appendChild(pages);
+        book.appendChild(isReadIcon);
+        book.appendChild(deleteIcon);
 
         libraryContainer.appendChild(book);
     }
@@ -84,7 +81,7 @@ function createNewBook(e) {
 }
 
 function deleteBook(e) {
-    let book = e.target.parentElement.parentElement;
+    let book = e.target.parentElement;
     let id = book.getAttribute("data-id");
 
     for (let i = 0; i < library.length; i++) {
@@ -99,12 +96,19 @@ function deleteBook(e) {
 }
 
 function toggleReadStatus(e) {
-    let bookID = e.target.parentElement.parentElement.getAttribute("data-id");
+    let bookID = e.target.parentElement.getAttribute("data-id");
     
     for (let i = 0; i < library.length; i++) {
         if (library[i].id == bookID) {
             library[i].isRead = library[i].isRead ? false : true;
-            e.target.textContent = library[i].isRead ? "Y" : "N";
+
+            if (library[i].isRead) {
+                e.target.setAttribute("src", "./icon/book-complete.svg");
+                e.target.setAttribute("alt", "Finished book icon");
+            } else {
+                e.target.setAttribute("src", "./icon/book-reading-2.svg");
+                e.target.setAttribute("alt", "Currently reading book icon");
+            }
         }
     }
 
