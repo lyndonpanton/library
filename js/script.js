@@ -46,8 +46,19 @@ function displayBooks() {
         deleteIcon.addEventListener("click", deleteBook);
 
         let isReadIcon = document.createElement("img");
-        isReadIcon.setAttribute("src", "./icon/book-reading-2.svg");
-        isReadIcon.setAttribute("alt", "Currently reading book icon");
+
+        if (library[i].isRead) {
+            isReadIcon.setAttribute("src", "./icon/book-complete.svg");
+            isReadIcon.setAttribute("alt", "Finished book icon");
+            
+            book.classList.add("book-is-read-true");
+        } else {
+            isReadIcon.setAttribute("src", "./icon/book-reading.svg");
+            isReadIcon.setAttribute("alt", "Currently reading book icon");
+            
+            book.classList.add("book-is-read-false");
+        }
+
         isReadIcon.classList.add("book-is-read");
         isReadIcon.addEventListener("click", toggleReadStatus);
 
@@ -105,9 +116,15 @@ function toggleReadStatus(e) {
             if (library[i].isRead) {
                 e.target.setAttribute("src", "./icon/book-complete.svg");
                 e.target.setAttribute("alt", "Finished book icon");
+                
+                e.target.parentElement.classList.add("book-is-read-true");
+                e.target.parentElement.classList.remove("book-is-read-false");
             } else {
-                e.target.setAttribute("src", "./icon/book-reading-2.svg");
+                e.target.setAttribute("src", "./icon/book-reading.svg");
                 e.target.setAttribute("alt", "Currently reading book icon");
+                
+                e.target.parentElement.classList.add("book-is-read-false");
+                e.target.parentElement.classList.remove("book-is-read-true");
             }
         }
     }

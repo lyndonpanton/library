@@ -104,6 +104,18 @@ h1 {
 
 }
 
+.book-is-read-true {
+    border-color: greenyellow;
+
+    background-color: lightseagreen;
+    
+    opacity: 0.7;
+}
+
+.book-is-read-false {
+    opacity: 1;
+}
+
 /* Form */
 
 dialog {
