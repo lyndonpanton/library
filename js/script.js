@@ -50,12 +50,12 @@ function displayBooks() {
         if (library[i].isRead) {
             isReadIcon.setAttribute("src", "./icon/book-complete.svg");
             isReadIcon.setAttribute("alt", "Finished book icon");
-            
+
             book.classList.add("book-is-read-true");
         } else {
             isReadIcon.setAttribute("src", "./icon/book-reading.svg");
             isReadIcon.setAttribute("alt", "Currently reading book icon");
-            
+
             book.classList.add("book-is-read-false");
         }
 
@@ -163,25 +163,6 @@ function addDummyBooks() {
     addBookToLibrary(book2);
     addBookToLibrary(book3);
     addBookToLibrary(book4);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
-    addBookToLibrary(book5);
     addBookToLibrary(book5);
 
     displayBooks();
