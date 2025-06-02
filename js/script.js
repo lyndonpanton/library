@@ -127,7 +127,8 @@ function closeDialog() {
 
 function openDialog() {
     let bookDialog = document.getElementById("book-dialog");
-    bookDialog.setAttribute("open", true);
+    // bookDialog.setAttribute("open", true);
+    bookDialog.showModal();
 }
 
 function addDummyBooks() {
@@ -141,6 +142,25 @@ function addDummyBooks() {
     addBookToLibrary(book2);
     addBookToLibrary(book3);
     addBookToLibrary(book4);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
+    addBookToLibrary(book5);
     addBookToLibrary(book5);
 
     displayBooks();
@@ -157,6 +177,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
     let closeDialogButton = document.getElementById("book-form-button-close");
     closeDialogButton.addEventListener("click", closeDialog);
 
-    let openDialogButton = document.getElementById("book-dialog-open");
+    let openDialogButton = document.getElementById("book-dialog-open-button");
     openDialogButton.addEventListener("click", openDialog);
 });

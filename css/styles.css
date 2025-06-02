@@ -8,6 +8,10 @@
     font-weight: normal;
 }
 
+:root {
+    --section-border: 1px solid #BFBFBF;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -24,11 +28,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header */
 header {
-    /* height: 20vh; */
+    height: 20vh;
+    border-bottom: var(--section-border);
 }
 
 h1 {
-    border-bottom: 1px solid #DDDDDD;
     padding: 40px 0;
 
     font-size: 4rem;
@@ -43,7 +47,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-around;
 
-    height: 75vh;
+    height: 80vh;
     padding: 40px 0;
 
     overflow-y: scroll; 
@@ -224,6 +228,17 @@ input[type="radio"]:checked::before {
 
 /* Other */
 #book-dialog-open {
+    position: absolute;
+    bottom: 0;
+    
+    width: 100%;
+    border-top: var(--section-border);
+    padding: 40px 0;
+
+    background-color: white;
+}
+
+#book-dialog-open-button {
     display: block;
 
     margin: 0 auto;

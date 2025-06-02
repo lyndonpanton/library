@@ -8,7 +8,7 @@ A list of tasks I need to do to complete this project.
 
 ### MVP
 
-- [ ] Implement a sidebar (offscreen by default) or a
+- [x] Implement a sidebar (offscreen by default) or a
 [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog)
 which contains the form for adding new books
 - [ ] Design the application
